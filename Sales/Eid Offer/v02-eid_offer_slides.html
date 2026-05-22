@@ -1,0 +1,169 @@
+<h2 class="sr-only">HAX Consulting Eid Special Offer — price comparison for Tier 1 and Tier 2</h2>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#ddd;font-family:'Segoe UI',Arial,sans-serif;display:flex;flex-direction:column;align-items:center;padding:20px;gap:14px}
+.tabs{display:flex;gap:10px}
+.tab{padding:9px 34px;border:2.5px solid #CC0000;border-radius:6px;cursor:pointer;font-size:14px;font-weight:700;letter-spacing:1px;background:transparent;color:#CC0000;font-family:inherit;transition:all .2s}
+.tab.on{background:#CC0000;color:#fff}
+.outer{width:100%;max-width:960px;overflow:hidden;border-radius:10px;box-shadow:0 10px 50px rgba(0,0,0,.18)}
+.wrap{width:960px;height:540px;position:relative;transform-origin:top left}
+.slide{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .3s}
+.slide.on{opacity:1;pointer-events:auto}
+
+.bnr{background:#CC0000;padding:18px 52px;flex-shrink:0;display:flex;justify-content:space-between;align-items:center}
+.bnr-brand{font-size:34px;font-weight:900;letter-spacing:6px;color:#F0C055}
+.bnr-title{font-size:24px;font-weight:700;color:#fff;letter-spacing:3px;text-transform:uppercase}
+.bnr-tier{background:#F0C055;color:#3a0000;font-size:17px;font-weight:800;padding:7px 26px;border-radius:30px;letter-spacing:2px}
+
+.accent{height:5px;background:#F0C055;flex-shrink:0}
+
+.main{flex:1;display:flex;gap:24px;padding:24px 52px 20px}
+
+.card{flex:1;border-radius:18px;padding:22px 28px 20px;display:flex;flex-direction:column;overflow:hidden}
+.card.plan{background:#FFFCEF;border:2.5px solid #D4A030}
+.card.oto{background:#FFF5F5;border:2.5px solid #CC0000}
+
+.c-lbl{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+.c-lbl.g{color:#9A6500}
+.c-lbl.r{color:#CC0000}
+
+.otag{font-size:10px;color:#bbb;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.onum{font-size:30px;font-weight:700;color:#ccc;text-decoration:line-through;text-decoration-color:#CC0000;text-decoration-thickness:3px}
+.odesc{font-size:11px;color:#ccc;margin-top:3px}
+
+.ntag{font-size:10px;color:#999;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;margin-top:12px}
+
+.prow{display:flex;align-items:flex-start;gap:5px;line-height:1}
+.pcur{font-size:20px;font-weight:700;margin-top:14px}
+.pcur.g{color:#9A6500}
+.pcur.r{color:#CC0000}
+.pamt{font-size:80px;font-weight:900;line-height:1}
+.pamt.g{color:#B07A00}
+.pamt.r{color:#CC0000}
+.pdesc{font-size:12px;color:#888;margin-top:6px;line-height:1.6}
+
+.save{margin-top:auto;padding-top:16px}
+.spill{font-size:15px;font-weight:700;color:#fff;padding:9px 24px;border-radius:25px;display:inline-block;letter-spacing:.5px}
+.spill.g{background:#9A6500}
+.spill.r{background:#CC0000}
+
+.ftr{padding:10px 52px 14px;border-top:4px solid #F0C055;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.fl{font-size:11px;color:#bbb;letter-spacing:1.5px;text-transform:uppercase}
+.fr{font-size:11px;color:#B07A00;font-weight:700;letter-spacing:2.5px;text-transform:uppercase}
+</style>
+
+<div class="tabs">
+  <button class="tab on" onclick="sw(1)">TIER 1</button>
+  <button class="tab" onclick="sw(2)">TIER 2</button>
+</div>
+
+<div class="outer"><div class="wrap" id="wr">
+
+  <div class="slide on" id="s1">
+    <div class="bnr">
+      <div class="bnr-brand">HAX</div>
+      <div class="bnr-title">🌙 EID SPECIAL OFFER</div>
+      <div class="bnr-tier">TIER 1</div>
+    </div>
+    <div class="accent"></div>
+    <div class="main">
+
+      <div class="card plan">
+        <div class="c-lbl g">2-Month Payment Plan</div>
+        <div class="otag">Was</div>
+        <div class="onum">AED 18,000</div>
+        <div class="odesc">3 months × AED 6,000</div>
+        <div class="ntag">Eid Price</div>
+        <div class="prow">
+          <span class="pcur g">AED</span>
+          <span class="pamt g">13,000</span>
+        </div>
+        <div class="pdesc">AED 6,500 × 2 months</div>
+        <div class="save"><span class="spill g">Save AED 5,000</span></div>
+      </div>
+
+      <div class="card oto">
+        <div class="c-lbl r">One-Time Payment</div>
+        <div class="otag">Was</div>
+        <div class="onum">AED 15,000</div>
+        <div class="odesc">Single full payment</div>
+        <div class="ntag">Eid Price</div>
+        <div class="prow">
+          <span class="pcur r">AED</span>
+          <span class="pamt r">12,000</span>
+        </div>
+        <div class="pdesc">One payment · Done</div>
+        <div class="save"><span class="spill r">Save AED 3,000</span></div>
+      </div>
+
+    </div>
+    <div class="ftr">
+      <div class="fl">⏰ Limited time · Eid offer</div>
+      <div class="fr">HAX Consulting</div>
+    </div>
+  </div>
+
+  <div class="slide" id="s2">
+    <div class="bnr">
+      <div class="bnr-brand">HAX</div>
+      <div class="bnr-title">🌙 EID SPECIAL OFFER</div>
+      <div class="bnr-tier">TIER 2</div>
+    </div>
+    <div class="accent"></div>
+    <div class="main">
+
+      <div class="card plan">
+        <div class="c-lbl g">2-Month Payment Plan</div>
+        <div class="otag">Was</div>
+        <div class="onum">AED 9,000</div>
+        <div class="odesc">2 months × AED 4,500</div>
+        <div class="ntag">Eid Price</div>
+        <div class="prow">
+          <span class="pcur g">AED</span>
+          <span class="pamt g">6,500</span>
+        </div>
+        <div class="pdesc">AED 3,250 × 2 months</div>
+        <div class="save"><span class="spill g">Save AED 2,500</span></div>
+      </div>
+
+      <div class="card oto">
+        <div class="c-lbl r">One-Time Payment</div>
+        <div class="otag">Was</div>
+        <div class="onum">AED 7,500</div>
+        <div class="odesc">Single full payment</div>
+        <div class="ntag">Eid Price</div>
+        <div class="prow">
+          <span class="pcur r">AED</span>
+          <span class="pamt r">6,000</span>
+        </div>
+        <div class="pdesc">One payment · Done</div>
+        <div class="save"><span class="spill r">Save AED 1,500</span></div>
+      </div>
+
+    </div>
+    <div class="ftr">
+      <div class="fl">⏰ Limited time · Eid offer</div>
+      <div class="fr">HAX Consulting</div>
+    </div>
+  </div>
+
+</div></div>
+
+<script>
+function sw(n){
+  document.querySelectorAll('.slide').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+  document.getElementById('s'+n).classList.add('on');
+  document.querySelectorAll('.tab')[n-1].classList.add('on');
+}
+function fit(){
+  const o=document.querySelector('.outer');
+  const w=document.getElementById('wr');
+  const sc=Math.min(1,o.clientWidth/960);
+  w.style.transform=`scale(${sc})`;
+  w.style.transformOrigin='top left';
+  o.style.height=(540*sc)+'px';
+}
+fit();
+window.addEventListener('resize',fit);
+</script>

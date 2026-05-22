@@ -1,0 +1,492 @@
+<h2 class="sr-only">HAX Consulting Eid Al-Adha Offer — Tier 1 Executive and Tier 2 Fast Track</h2>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+  }
+
+  body {
+    background: #d5d5d5;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 14px
+  }
+
+  .tabs {
+    display: flex;
+    gap: 10px
+  }
+
+  .tab {
+    padding: 9px 34px;
+    border: 2.5px solid #CC0000;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: transparent;
+    color: #CC0000;
+    font-family: inherit;
+    transition: all .2s
+  }
+
+  .tab.on {
+    background: #CC0000;
+    color: #fff
+  }
+
+  .outer {
+    width: 100%;
+    max-width: 960px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, .18)
+  }
+
+  .wrap {
+    width: 960px;
+    height: 540px;
+    position: relative;
+    transform-origin: top left
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s
+  }
+
+  .slide.on {
+    opacity: 1;
+    pointer-events: auto
+  }
+
+  .bnr {
+    background: #CC0000;
+    padding: 14px 44px;
+    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center
+  }
+
+  .bnr-brand {
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: #F0C055
+  }
+
+  .bnr-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center
+  }
+
+  .bnr-tier {
+    background: #F0C055;
+    color: #3a0000;
+    padding: 7px 22px;
+    border-radius: 10px;
+    text-align: center;
+    justify-self: end
+  }
+
+  .tier-num {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 2px
+  }
+
+  .tier-sub {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    opacity: .8
+  }
+
+  .accent {
+    height: 5px;
+    background: #F0C055;
+    flex-shrink: 0
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    gap: 24px;
+    padding: 20px 52px 16px
+  }
+
+  .card {
+    flex: 1;
+    border-radius: 18px;
+    padding: 20px 24px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden
+  }
+
+  .card.plan {
+    background: #FFF5F5;
+    border: 2.5px solid #CC0000
+  }
+
+  .card.oto {
+    background: #FFFCEF;
+    border: 2.5px solid #D4A030
+  }
+
+  .c-lbl {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px
+  }
+
+  .c-lbl.r {
+    color: #CC0000
+  }
+
+  .c-lbl.g {
+    color: #9A6500
+  }
+
+  .was-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap
+  }
+
+  .was-lbl {
+    font-size: 11px;
+    font-weight: 800;
+    color: rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    flex-shrink: 0
+  }
+
+  .was-num {
+    font-size: 26px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.65);
+    position: relative;
+    display: inline-block
+  }
+
+  .was-num::after {
+    content: '';
+    position: absolute;
+    left: -3px;
+    right: -3px;
+    top: 46%;
+    height: 2.5px;
+    background: rgba(204, 0, 0, 0.38);
+    transform: rotate(10deg);
+    border-radius: 2px
+  }
+
+  .was-detail {
+    font-size: 19px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.55)
+  }
+
+  .sep {
+    width: 100%;
+    height: 2px;
+    margin: 14px 0 10px;
+    border-radius: 2px
+  }
+
+  .sep.r {
+    background: rgba(204, 0, 0, 0.2)
+  }
+
+  .sep.g {
+    background: rgba(160, 100, 0, 0.2)
+  }
+
+  .prow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+    line-height: 1
+  }
+
+  .pcur {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 13px
+  }
+
+  .pcur.r {
+    color: #AA0000
+  }
+
+  .pcur.g {
+    color: #9A6500
+  }
+
+  .pamt {
+    font-size: 82px;
+    font-weight: 900;
+    line-height: 1
+  }
+
+  .pamt.r {
+    color: #CC0000
+  }
+
+  .pamt.g {
+    color: #B07A00
+  }
+
+  .pdesc {
+    font-size: 26px;
+    font-weight: 700;
+    color: #000;
+    margin-top: 6px
+  }
+
+  .save-area {
+    margin-top: auto;
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px
+  }
+
+  .spill {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    padding: 10px 28px;
+    border-radius: 25px;
+    display: inline-block;
+    letter-spacing: .5px
+  }
+
+  .spill.r {
+    background: #CC0000
+  }
+
+  .spill.g {
+    background: #9A6500
+  }
+
+  .snote {
+    font-size: 15px;
+    font-weight: 700
+  }
+
+  .snote.r {
+    color: #CC0000
+  }
+
+  .snote.g {
+    color: #9A6500
+  }
+
+  .ftr {
+    padding: 9px 52px 12px;
+    border-top: 4px solid #F0C055;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0
+  }
+
+  .fl {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+    text-transform: uppercase
+  }
+
+  .fc {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.55);
+    font-style: italic;
+    white-space: nowrap
+  }
+
+  .fr {
+    font-size: 11px;
+    font-weight: 800;
+    color: #8B5E00;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: right
+  }
+</style>
+
+<div class="tabs">
+  <button class="tab on" onclick="sw(1)">TIER 1 — EXECUTIVE</button>
+  <button class="tab" onclick="sw(2)">TIER 2 — FAST TRACK</button>
+</div>
+
+<div class="outer">
+  <div class="wrap" id="wr">
+
+    <div class="slide on" id="s1">
+      <div class="bnr">
+        <div class="bnr-brand">HAX</div>
+        <div class="bnr-title">🐑 EID AL-ADHA OFFER 🐑</div>
+        <div class="bnr-tier">
+          <div class="tier-num">TIER 1</div>
+          <div class="tier-sub">EXECUTIVE</div>
+        </div>
+      </div>
+      <div class="accent"></div>
+      <div class="main">
+
+        <div class="card plan">
+          <div class="c-lbl r">Installments</div>
+          <div class="was-row">
+            <span class="was-lbl">Was</span>
+            <span class="was-num">18 K</span>
+            <span class="was-detail">· 6 K × 3 months</span>
+          </div>
+          <div class="sep r"></div>
+          <div class="prow">
+            <span class="pcur r">AED</span>
+            <span class="pamt r">13 K</span>
+          </div>
+          <div class="pdesc">6.5 K × 2 months</div>
+          <div class="save-area">
+            <span class="spill r">Save 5 K</span>
+            <span class="snote r">~ We wiped out the 3rd</span>
+          </div>
+        </div>
+
+        <div class="card oto">
+          <div class="c-lbl g">One-Time</div>
+          <div class="was-row">
+            <span class="was-lbl">Was</span>
+            <span class="was-num">15 K</span>
+          </div>
+          <div class="sep g"></div>
+          <div class="prow">
+            <span class="pcur g">AED</span>
+            <span class="pamt g">12 K</span>
+          </div>
+          <div class="pdesc">Single payment</div>
+          <div class="save-area">
+            <span class="spill g">Save 6 K</span>
+            <span class="snote g">That's 33% OFF</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="ftr">
+        <div class="fl">⏰ Limited time only</div>
+        <div class="fc">* All prices are exclusive Eid prices</div>
+        <div class="fr">HAX Consulting</div>
+      </div>
+    </div>
+
+    <div class="slide" id="s2">
+      <div class="bnr">
+        <div></div>
+        <div class="bnr-title">🐑 EID AL-ADHA OFFER 🐑</div>
+        <div class="bnr-tier">
+          <div class="tier-num">TIER 2</div>
+          <div class="tier-sub">FAST TRACK</div>
+        </div>
+      </div>
+      <div class="accent"></div>
+      <div class="main">
+
+        <div class="card plan">
+          <div class="c-lbl r">Installments</div>
+          <div class="was-row">
+            <span class="was-lbl">Was</span>
+            <span class="was-num">9 K</span>
+            <span class="was-detail">· 3 K × 3 months</span>
+            <!-- <span class="was-detail">· 4.5 K × 2 months</span> -->
+          </div>
+          <div class="sep r"></div>
+          <div class="prow">
+            <span class="pcur r">AED</span>
+            <span class="pamt r">6.5 K</span>
+          </div>
+          <div class="pdesc">3.25 K × 2 months</div>
+          <div class="save-area">
+            <span class="spill r">Save 2.5 K</span>
+            <span class="snote r">~ We wiped out the 3rd</span>
+            <!-- <span class="snote r">Same 2 months · 28% cheaper</span> -->
+          </div>
+        </div>
+
+        <div class="card oto">
+          <div class="c-lbl g">One-Time</div>
+          <div class="was-row">
+            <span class="was-lbl">Was</span>
+            <span class="was-num">7.5 K</span>
+          </div>
+          <div class="sep g"></div>
+          <div class="prow">
+            <span class="pcur g">AED</span>
+            <span class="pamt g">6 K</span>
+          </div>
+          <div class="pdesc">Single payment</div>
+          <div class="save-area">
+            <span class="spill g">Save 3 K</span>
+            <span class="snote g">That's 33% OFF</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="ftr">
+        <div class="fl">⏰ Limited time only</div>
+        <div class="fc">* All prices are exclusive Eid prices</div>
+        <div class="fr">HAX Consulting</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function sw(n) {
+    document.querySelectorAll('.slide').forEach(s => s.classList.remove('on'));
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'));
+    document.getElementById('s' + n).classList.add('on');
+    document.querySelectorAll('.tab')[n - 1].classList.add('on');
+  }
+  function fit() {
+    const o = document.querySelector('.outer');
+    const w = document.getElementById('wr');
+    const sc = Math.min(1, o.clientWidth / 960);
+    w.style.transform = `scale(${sc})`;
+    w.style.transformOrigin = 'top left';
+    o.style.height = (540 * sc) + 'px';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+</script>

@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../Jouza Local"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Jouza Local/C-HAX"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "D-Downloads"
+	}
+}
