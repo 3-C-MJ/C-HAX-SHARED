@@ -726,6 +726,8 @@
       const depth = currentPath ? currentPath.split('/').length : 0;
 
       return tree.filter(item => {
+
+        console.log('ITEMS:', depth, item)
         // Skip ignored files (only at root)
         if (!currentPath && CONFIG.ignore.includes(item.path)) return false;
 
@@ -737,9 +739,9 @@
         } else {
           // Inside a folder: items directly inside currentPath
           if (!item.path.startsWith(currentPath + '/')) return false;
-          return parts.length === depth + 1;
+          return parts.length === depth + 2;
           // return parts.length === depth + 2
-          
+
         }
 
       });
