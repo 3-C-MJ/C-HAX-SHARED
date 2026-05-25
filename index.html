@@ -558,7 +558,15 @@
 
     <header class="header">
       <div class="badge"><span class="badge-dot"></span><span id="repo-name">Loading…</span></div>
-      <h1>Shared <em>Resources</em></h1>
+      <h1>Shared <em>Resources</em>
+        <!-- HERE -->
+        <!-- 26-05-25 | 16:33:37 - 
+26-05-25 | 16:33:44 -  -->
+        26-05-25 | 16:33:45 -
+
+
+        <!--  -->
+      </h1>
       <p class="subtitle">All files and folders are loaded automatically from the repository. Click any card to open.
       </p>
     </header>
@@ -574,16 +582,6 @@
     <div class="api-warning" id="api-warning">
       ⚠ GitHub API rate limit reached. Showing cached data or try again in 1 hour.
     </div>
-
-    <p><strong>HERE - Latest Update:</strong></p>
-    <!-- <p>26-05-25 | 14:32:38 - </p>
-    <p>26-05-25 | 14:36:37 - </p>
-    <p>26-05-25 | 14:41:32 - </p> -->
-    <p>26-05-25 | 16:27:54 - </p>
-    <p></p>
-    <p>======================== </p>
-
-    <br>
 
     <div id="breadcrumb" class="breadcrumb"></div>
     <div id="content">
@@ -739,8 +737,11 @@
         } else {
           // Inside a folder: items directly inside currentPath
           if (!item.path.startsWith(currentPath + '/')) return false;
-          return parts.length === depth + 2;
+          return parts.length === depth + 1;
+          // return parts.length === depth + 2
+          
         }
+
       });
     }
 
