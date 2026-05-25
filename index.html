@@ -684,10 +684,14 @@
     // ─────────────────────────────────────────────
     function fileUrl(itemPath) {
       const host = window.location.hostname;
+      // add this
+      const encodedPath = itemPath.split('/').map(encodeURIComponent).join('/');
       if (host.endsWith('.github.io')) {
-        return `/${CONFIG.repo}/${itemPath}`;
+        return `/${CONFIG.repo}/${encodedPath}`;
+        // return `/${CONFIG.repo}/${itemPath}`;
       }
-      return `./${itemPath}`;
+      // return `./${itemPath}`;
+      return `./${encodedPath}`;
     }
 
     // ─────────────────────────────────────────────
@@ -786,7 +790,7 @@
 
       let html = '';
 
-          // Files section — grouped by extension
+      // Files section — grouped by extension
       const filteredFiles = files.filter(matchSearch);
       if (filteredFiles.length) {
         html += `<div class="section-label">Files</div><div class="grid">`;
@@ -832,7 +836,7 @@
         html += `</div>`;
       }
 
-  
+
       if (!filteredFolders.length && !filteredFiles.length) {
         html = `<p class="empty-msg">No results for "${q}"</p>`;
       }
