@@ -554,22 +554,41 @@
 </head>
 
 <body>
+
+
   <div class="container">
 
     <header class="header">
       <div class="badge"><span class="badge-dot"></span><span id="repo-name">Loading…</span></div>
-      <h1>Shared <em>Resources</em>
-        <!-- HERE -->
-        <!-- 26-05-25 | 16:33:37 - 
-26-05-25 | 16:33:44 -  -->
-        26-05-25 | 16:33:45 -
-
-
-        <!--  -->
-      </h1>
+      <h1 id="main_h1">SR - </h1>
       <p class="subtitle">All files and folders are loaded automatically from the repository. Click any card to open.
       </p>
     </header>
+
+    <script>
+      const main_h1 = document.querySelector("#main_h1")
+      const timing = `
+26-05-25 | 16:33:45 -
+26-05-25 | 16:48:22 -
+26-05-25 | 16:51:01 - 
+
+
+
+
+
+
+
+
+      
+`
+
+      const timingSplit = timing.split(' -')
+      console.log(timingSplit)
+      const lastTiming = timingSplit[timingSplit.length - 2]
+      console.log(lastTiming)
+
+      main_h1.innerHTML = "Shared <em>Resources</em> - " + lastTiming
+    </script>
 
     <div class="search-wrap">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -739,11 +758,11 @@
         } else {
           // Inside a folder: items directly inside currentPath
           if (!item.path.startsWith(currentPath + '/')) {
-            // return false;
-            return parts.length === depth + 1;
+            return false;
+            // return parts.length === depth + 1;
 
           }
-          return parts.length === depth + 2;
+          return parts.length === depth + 1;
           // return parts.length === depth + 2
 
         }
