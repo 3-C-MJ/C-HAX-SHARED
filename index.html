@@ -554,13 +554,12 @@
 </head>
 
 <body>
-
-
   <div class="container">
 
     <header class="header">
       <div class="badge"><span class="badge-dot"></span><span id="repo-name">Loading…</span></div>
       <h1 id="main_h1">SR - </h1>
+      <h1 id="main_h2">SR - </h1>
       <p class="subtitle">All files and folders are loaded automatically from the repository. Click any card to open.
       </p>
     </header>
@@ -572,14 +571,10 @@
 26-05-25 | 16:48:22 -
 26-05-25 | 16:51:01 - 
 26-05-25 | 16:56:14 - 
+26-05-25 | 17:02:25 - 
 
 
 
-
-
-
-
-      
 `
 
       const timingSplit = timing.split(' -')
@@ -588,6 +583,9 @@
       console.log(lastTiming)
 
       main_h1.innerHTML = "Shared <em>Resources</em> - " + lastTiming
+      main_h2.innerHTML = "Shared <em>Resources</em> - " + lastTiming
+
+
     </script>
 
     <div class="search-wrap">
@@ -883,7 +881,7 @@
     //  MAIN RENDER
     // ─────────────────────────────────────────────
     async function renderPage() {
-      const currentPath = window.location.hash.replace(/^#\/?/, '').replace(/\/$/, '');
+      const currentPath = decodeURIComponent(window.location.hash.replace(/^#\/?/, '').replace(/\/$/, ''));
 
       document.getElementById('content').innerHTML =
         '<div class="state"><span class="icon">⏳</span>Loading…</div>';
@@ -908,7 +906,7 @@
     document.getElementById('search').addEventListener('input', e => {
       clearTimeout(searchTimer);
       searchTimer = setTimeout(async () => {
-        const currentPath = window.location.hash.replace(/^#\/?/, '').replace(/\/$/, '');
+        const currentPath = decodeURIComponent(window.location.hash.replace(/^#\/?/, '').replace(/\/$/, ''));
         const tree = await fetchTree().catch(() => []);
 
         let items;
