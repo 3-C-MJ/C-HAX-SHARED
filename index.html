@@ -738,7 +738,11 @@
           return parts.length === 1;
         } else {
           // Inside a folder: items directly inside currentPath
-          if (!item.path.startsWith(currentPath + '/')) return false;
+          if (!item.path.startsWith(currentPath + '/')) {
+            // return false;
+            return parts.length === depth + 1;
+
+          }
           return parts.length === depth + 2;
           // return parts.length === depth + 2
 
