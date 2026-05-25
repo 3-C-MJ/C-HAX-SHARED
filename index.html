@@ -580,6 +580,7 @@
     <p>26-05-25 | 14:32:38 - </p>
     <p>26-05-25 | 14:36:37 - </p>
     <p>======================== </p>
+
     <br>
 
     <div id="breadcrumb" class="breadcrumb"></div>
@@ -783,6 +784,29 @@
 
       let html = '';
 
+          // Files section — grouped by extension
+      const filteredFiles = files.filter(matchSearch);
+      if (filteredFiles.length) {
+        html += `<div class="section-label">Files</div><div class="grid">`;
+        filteredFiles.forEach(item => {
+          const name = getBaseName(item.path);
+          const type = getFileType(name, false);
+          const size = formatSize(item.size);
+          const href = fileUrl(item.path);
+          html += `
+        <a class="card ${type.color}" href="${href}" target="_blank">
+          <div class="card-icon">${type.icon}</div>
+          <div class="card-title">${name}</div>
+          <p class="card-desc">${size ? size : '&nbsp;'}</p>
+          <div class="card-footer">
+            <span class="card-tag">${type.label}</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>`;
+        });
+        html += `</div>`;
+      }
+
       // Folders section
       const filteredFolders = folders.filter(matchSearch);
       if (filteredFolders.length) {
@@ -806,29 +830,7 @@
         html += `</div>`;
       }
 
-      // Files section — grouped by extension
-      const filteredFiles = files.filter(matchSearch);
-      if (filteredFiles.length) {
-        html += `<div class="section-label">Files</div><div class="grid">`;
-        filteredFiles.forEach(item => {
-          const name = getBaseName(item.path);
-          const type = getFileType(name, false);
-          const size = formatSize(item.size);
-          const href = fileUrl(item.path);
-          html += `
-        <a class="card ${type.color}" href="${href}" target="_blank">
-          <div class="card-icon">${type.icon}</div>
-          <div class="card-title">${name}</div>
-          <p class="card-desc">${size ? size : '&nbsp;'}</p>
-          <div class="card-footer">
-            <span class="card-tag">${type.label}</span>
-            <span class="card-arrow">→</span>
-          </div>
-        </a>`;
-        });
-        html += `</div>`;
-      }
-
+  
       if (!filteredFolders.length && !filteredFiles.length) {
         html = `<p class="empty-msg">No results for "${q}"</p>`;
       }
